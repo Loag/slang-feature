@@ -2,6 +2,24 @@
 
 set -e  # Exit on any error
 
+install_wget() {
+    if command -v apt-get &> /dev/null; then
+        apt-get update && apt-get install -y wget
+    elif command -v yum &> /dev/null; then
+        yum install -y wget
+    elif command -v apk &> /dev/null; then
+        apk add --no-cache wget
+    else
+        echo "Error: Package manager not found. Please install wget manually."
+        exit 1
+    fi
+}
+
+if ! command -v wget &> /dev/null; then
+    echo "wget not found. Installing wget..."
+    install_wget
+fi
+
 BIN_PATH=/opt/slang
 
 mkdir -p $BIN_PATH

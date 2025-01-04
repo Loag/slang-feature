@@ -2,7 +2,7 @@
 
 set -e  # Exit on any error
 
-BIN_PATH=/opt/slang/bin/slangc
+BIN_PATH=/opt/slang
 
 mkdir -p $BIN_PATH
 
@@ -35,7 +35,9 @@ tar -xvzf slang.tar.gz -C /opt/slang
 # not sure if this is necesary
 chmod +x /opt/slang/bin/slangc
 
-if ! grep -q "$BIN_PATH" ~/.zshrc; then
-    echo 'export PATH="$PATH:/opt/slang/bin/slangc"' >> ~/.zshrc
-    echo "Added $BIN_PATH to PATH in ~/.zshrc"
+if ! grep -q "/opt/slang/bin" ~/.zshrc; then
+    echo 'export PATH=$PATH:/opt/slang/bin' >> ~/.zshrc
+    echo "Added /opt/slang/bin to PATH in ~/.zshrc"
 fi
+
+source ~/.zshrc

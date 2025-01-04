@@ -41,23 +41,17 @@ case "$ARCH" in
     *) echo "Unsupported arch: $ARCH"; exit 1 ;;
 esac
 
-VERSION="2024.17"
 URL="https://github.com/shader-slang/slang/releases/download/v${VERSION}/slang-${VERSION}-${OS}-${ARCH}.tar.gz"
 
 echo "Downloading slang from $URL..."
 
 wget -O slang.tar.gz "$URL"
 
-tar -xvzf slang.tar.gz -C /opt/slang
+echo "unpacking..."
+
+tar -xvzf slang.tar.gz -C $BIN_PATH
 
 # not sure if this is necesary
-chmod +x /opt/slang/bin/slangc
+chmod +x $BIN_PATH/bin/slangc
 
-# export PATH=$PATH:/opt/slang/bin
-
-# if ! grep -q "/opt/slang/bin" ~/.zshrc; then
-#     echo 'export PATH=$PATH:/opt/slang/bin' >> ~/.zshrc
-#     echo "Added /opt/slang/bin to PATH in ~/.zshrc"
-# fi
-
-# source ~/.zshrc
+echo "installed slang version: $VERSION"

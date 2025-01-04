@@ -8,5 +8,8 @@
   "mounts": [],
   "installsAfter": [
     "ghcr.io/devcontainers/features/common-utils"
-  ]
+  ],
+  "containerEnv": {
+    "PATH": "/opt/slang/bin:${PATH}"
+  }
 }

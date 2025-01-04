@@ -36,6 +36,6 @@ tar -xvzf slang.tar.gz -C /opt/slang
 chmod +x /opt/slang/bin/slangc
 
 if ! grep -q "$BIN_PATH" ~/.zshrc; then
-    echo 'export PATH="$PATH:/path/to/installed/tool"' >> ~/.zshrc
+    echo 'export PATH="$PATH:/opt/slang/bin/slangc"' >> ~/.zshrc
     echo "Added $BIN_PATH to PATH in ~/.zshrc"
 fi

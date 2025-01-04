@@ -2,11 +2,10 @@
 
 set -e
 
-# Optional: Import test library
 source dev-container-features-test-lib
 
-# Definition specific tests
+export PATH=$PATH:/opt/slang/bin
+
 check "version" slangc -version
 
-# Report result
 reportResults

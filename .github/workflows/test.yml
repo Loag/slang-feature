@@ -1,0 +1,18 @@
+name: "Test Slang install"
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  test-feature:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: "Install latest devcontainer CLI"
+        run: npm install -g @devcontainers/cli
+
+      - name: "Test slang install install"
+        run: devcontainer features test --skip-scenarios -f slang -i ubuntu .

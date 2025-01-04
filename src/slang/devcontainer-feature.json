@@ -1,6 +1,6 @@
 {
   "id": "slang",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "Slang",
   "documentationURL": "https://github.com/loag/slang-feature",
   "description": "Installs slangc compiler",
